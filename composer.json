@@ -1,0 +1,23 @@
+{
+    "name": "shahrooz7216/bank-mellat-payment-service",
+    "description": "Forked: Bank Mellat Payment Service",
+    "keywords": ["composer", "package"],
+	"license": "DBAD",
+    "authors": [
+        {
+            "name": "Shahrooz Y",
+            "email": "shahrooz7216@gmail.com"
+        }
+    ],
+    "type": "project",
+	"require": {
+		"illuminate/support" : "^5.2",
+		"econea/nusoap": "v0.9.5.*"
+	  },
+  "autoload": {
+    "psr-4": {
+      "shahrooz7216\\BankMellatPaymentService\\": "src"
+    }
+  }
+}
+
