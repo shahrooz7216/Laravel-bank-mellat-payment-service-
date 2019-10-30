@@ -2,7 +2,7 @@
     "name": "shahrooz7216/bank-mellat-payment-service",
     "description": "Forked: Bank Mellat Payment Service",
     "keywords": ["composer", "package"],
-	"license": "DBAD",
+	"license": "MIT",
     "authors": [
         {
             "name": "Shahrooz Y",
