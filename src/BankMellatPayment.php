@@ -11,7 +11,8 @@ use SoapClient;
 
 /**
  * Class BankMellatPayment
- * @author Hasan Shafei [ www.netparadis.com ] 
+ * @author Hasan Shafei [ www.netparadis.com ]
+ * @author Shahrooz.Y [ shahrooz7216@gmail.com ]
  * @see http://www.behpardakht.com/
  *
  */
@@ -30,7 +31,7 @@ class BankMellatPayment
 
     /**
      * Payment Request
-     * @author Hasan Shafei [ www.netparadis.com ] 
+     * @author Hasan Shafei [ www.netparadis.com ]
      * @param $amount - IRR
      * @param $orderId - INT
      * @param string $additionalData
@@ -83,7 +84,7 @@ class BankMellatPayment
 
     /**
      * Verify Payment
-     * @author Hasan Shafei [ www.netparadis.com ] 
+     * @author Hasan Shafei [ www.netparadis.com ]
      * @param $orderId
      * @param $saleOrderId
      * @param $saleReferenceId
@@ -108,6 +109,74 @@ class BankMellatPayment
 
                 // Call the SOAP method
                 return $this->soapClient->bpVerifyRequest($parameters);
+            } catch (Exception $e) {
+                return $e->getMessage();
+            }
+        } else
+            return false;
+    }
+
+    /**
+     * Settle Request
+	 * @author Shahrooz.Y [ shahrooz7216@gmail.com ]
+     * @param $orderId
+     * @param $saleOrderId
+     * @param $saleReferenceId
+     * @return mixed - false for failed
+     */
+    public function settleRequest($orderId, $saleOrderId, $saleReferenceId)
+    {
+        $this->soapClient = new SoapClient(Config('BankMellatPayment.wsdl'));
+
+        if($orderId && $saleOrderId && $saleReferenceId) {
+
+            $parameters = [
+                'terminalId' => $this->config['terminalId'],
+                'userName' => $this->config['userName'],
+                'userPassword' => $this->config['userPassword'],
+                'orderId' => $orderId,
+                'saleOrderId' => $saleOrderId,
+                'saleReferenceId' => $saleReferenceId,
+            ];
+
+            try {
+
+                // Call the SOAP method
+                return $this->soapClient->bpSettleRequest($parameters);
+            } catch (Exception $e) {
+                return $e->getMessage();
+            }
+        } else
+            return false;
+    }
+
+    /**
+     * Reversal Request
+	 * @author Shahrooz.Y [ shahrooz7216@gmail.com ]
+     * @param $orderId
+     * @param $saleOrderId
+     * @param $saleReferenceId
+     * @return mixed - false for failed
+     */
+    public function reversalRequest($orderId, $saleOrderId, $saleReferenceId)
+    {
+        $this->soapClient = new SoapClient(Config('BankMellatPayment.wsdl'));
+
+        if($orderId && $saleOrderId && $saleReferenceId) {
+
+            $parameters = [
+                'terminalId' => $this->config['terminalId'],
+                'userName' => $this->config['userName'],
+                'userPassword' => $this->config['userPassword'],
+                'orderId' => $orderId,
+                'saleOrderId' => $saleOrderId,
+                'saleReferenceId' => $saleReferenceId,
+            ];
+
+            try {
+
+                // Call the SOAP method
+                return $this->soapClient->bpReversalRequest($parameters);
             } catch (Exception $e) {
                 return $e->getMessage();
             }
