@@ -5,7 +5,7 @@
 
  */
 
-namespace shahrooz7216\mellatBank;
+namespace shahrooz7216\MellatBank;
 
 use SoapClient;
 

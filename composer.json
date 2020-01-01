@@ -3,7 +3,7 @@
     "description": "Forked: Bank Mellat Payment Service",
     "keywords": ["composer", "package"],
 	"license": "MIT",
-    "version": "1.0.4",
+    "version": "1.1.1",
     "authors": [
         {
             "name": "Shahrooz Y",
@@ -17,7 +17,7 @@
 	  },
   "autoload": {
     "psr-4": {
-      "shahrooz7216\\BankMellatPaymentService\\": "src"
+      "shahrooz7216\\MellatBank\\": "src"
     }
   }
 }
