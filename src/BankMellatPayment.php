@@ -30,7 +30,6 @@ class BankMellatPayment
         $this->callBackURL = $this->config['callBackURL'];
     }
 
-
     /**
      * Payment Request
      * @author Hasan Shafei [ www.netparadis.com ]
@@ -191,5 +190,4 @@ class BankMellatPayment
         } else
             return false;
     }
-
 }
