@@ -7,7 +7,7 @@
  */
 
 
-namespace NetParadis\BankMellatPaymentService;
+namespace shahrooz7216\mellatBank;
 
 use Illuminate\Support\ServiceProvider;
 
