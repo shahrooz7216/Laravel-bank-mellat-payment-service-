@@ -18,6 +18,7 @@ use SoapClient;
  */
 class BankMellatPayment
 {
+
     protected $soapClient;
     protected $wsdl;
     public $config;
@@ -189,4 +190,5 @@ class BankMellatPayment
         } else
             return false;
     }
+
 }
