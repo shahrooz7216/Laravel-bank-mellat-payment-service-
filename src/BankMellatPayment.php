@@ -5,7 +5,7 @@
 
  */
 
-namespace NetParadis\BankMellatPaymentService;
+namespace shahrooz7216\mellatBank\BankMellatPaymentService;
 
 use SoapClient;
 
