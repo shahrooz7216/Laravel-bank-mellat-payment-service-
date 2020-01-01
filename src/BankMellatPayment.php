@@ -67,17 +67,23 @@ class BankMellatPayment
                     return [
                         'result' => true,
                         'res_code' => $res[0],
-                        'ref_id' => $res[1]
+                        'ref_id' => $res[1],
+						'message' => 'Payment request processed successfully.',
                     ];
                 } else {
                     return [
                         'result' => false,
                         'res_code' => $res[0],
-                        'ref_id' => isset($res[1]) ? $res[1] : null
+                        'ref_id' => isset($res[1]) ? $res[1] : null,
+						'message' => 'Payment request processed successfully.',
                     ];
                 }
-            } catch (Exception $e) {
-                return $e->getMessage();
+            } catch (Exception $e) {[
+				'result' => false,
+				'res_code' => -1,
+				'ref_id' => null,
+				'message' => 'Payment request was not successfull! Error message: '.$e->getMessage(),
+			];
             }
         }
     }
