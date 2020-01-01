@@ -17,7 +17,7 @@
 	  },
   "autoload": {
     "psr-4": {
-      "shahrooz7216\\MellatBank\\": "src"
+      "shahrooz7216\\bank-mellat-payment-service\\": "src/"
     }
   }
 }
