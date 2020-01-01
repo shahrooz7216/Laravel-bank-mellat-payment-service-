@@ -7,7 +7,7 @@
  */
 
 
-namespace shahrooz7216\mellatBank;
+namespace Shahrooz7216\MellatBank;
 
 use Illuminate\Support\ServiceProvider;
 
