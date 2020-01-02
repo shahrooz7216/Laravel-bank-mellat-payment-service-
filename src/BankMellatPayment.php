@@ -77,7 +77,7 @@ class BankMellatPayment
 						'result' => false,
 						'res_code' => $res[0],
 						'ref_id' => isset($res[1]) ? $res[1] : null,
-						'message' => 'Payment request processed successfully.',
+						'message' => 'Payment request was not successful. Error message: '.$result,
 					];
 				}
 			} catch (Exception $e) {
