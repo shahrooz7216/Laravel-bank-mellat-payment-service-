@@ -41,53 +41,64 @@ class BankMellatPayment
      * @throws \Exception
      */
     public function paymentRequest($amount, $orderId, $additionalData = '', $payerId = 0)
-    {
-        $this->soapClient = new SoapClient(Config('BankMellatPayment.wsdl'));
+	{
 
-        if($amount && $amount > 100 && $orderId ) {
-            $parameters = [
-                'terminalId' => $this->config['terminalId'],
-                'userName' => $this->config['userName'],
-                'userPassword' => $this->config['userPassword'],
-                'orderId' => $orderId,
-                'amount' => $amount,
-                'localDate' => date("Ymd"),
-                'localTime' => date("His"),
-                'additionalData' => $additionalData,
-                'callBackUrl' => $this->callBackURL,
-                'payerId' => $payerId
-            ];
+		$this->soapClient = new SoapClient(Config('BankMellatPayment.wsdl'));
 
-            try {
-
-                // Call the SOAP method
-                $result = $this->soapClient->bpPayRequest($parameters);
-                // Display the result
-                $res = explode(',', $result->return);
-                if ($res[0] == "0") {
-                    return [
-                        'result' => true,
-                        'res_code' => $res[0],
-                        'ref_id' => $res[1],
-						'message' => 'Payment request processed successfully.',
-                    ];
-                } else {
-                    return [
-                        'result' => false,
-                        'res_code' => $res[0],
-                        'ref_id' => isset($res[1]) ? $res[1] : null,
-						'message' => 'Payment request processed successfully.',
-                    ];
-                }
-            } catch (Exception $e) {[
-				'result' => false,
-				'res_code' => -1,
-				'ref_id' => null,
-				'message' => 'Payment request was not successfull! Error message: '.$e->getMessage(),
+		if($amount && $amount > 100 && $orderId ) {
+			$parameters = [
+				'terminalId' => $this->config['terminalId'],
+				'userName' => $this->config['userName'],
+				'userPassword' => $this->config['userPassword'],
+				'orderId' => $orderId,
+				'amount' => $amount,
+				'localDate' => date("Ymd"),
+				'localTime' => date("His"),
+				'additionalData' => $additionalData,
+				'callBackUrl' => $this->callBackURL,
+				'payerId' => $payerId
 			];
-            }
-        }
-    }
+
+			try {
+
+				// Call the SOAP method
+				$result = $this->soapClient->bpPayRequest($parameters);
+				// Display the result
+				$res = explode(',', $result->return);
+				if ($res[0] == "0") {
+					return [
+						'result' => true,
+						'res_code' => $res[0],
+						'ref_id' => $res[1],
+						'message' => 'Payment request processed successfully.',
+					];
+				} else {
+					return [
+						'result' => false,
+						'res_code' => $res[0],
+						'ref_id' => isset($res[1]) ? $res[1] : null,
+						'message' => 'Payment request processed successfully.',
+					];
+				}
+			} catch (Exception $e) {
+				return [
+					'result' => false,
+					'res_code' => -1,
+					'ref_id' => null,
+					'message' => 'Payment request was not successfull! Error message: '.$e->getMessage(),
+				];
+			}
+		}
+		else
+		{
+			return [
+				'result' => false,
+				'res_code' => -2,
+				'ref_id' => null,
+				'message' => 'Amount is below minimum amount, or order id is not defined correctly.',
+			];
+		}
+	}
 
     /**
      * Verify Payment
