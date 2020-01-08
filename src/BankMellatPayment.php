@@ -132,7 +132,7 @@ class BankMellatPayment
 					return [
 						'result' => true,
 						'res_code' => $res[0],
-						'ref_id' => $res[1],
+						'ref_id' => isset($res[1]) ? $res[1] : null,
 						'message' => 'Payment verification processed successfully.',
 					];
 				} else {
@@ -196,7 +196,7 @@ class BankMellatPayment
 					return [
 						'result' => true,
 						'res_code' => $res[0],
-						'ref_id' => $res[1],
+						'ref_id' => isset($res[1]) ? $res[1] : null,
 						'message' => 'Payment settlement processed successfully.',
 					];
 				} else {
