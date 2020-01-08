@@ -133,14 +133,14 @@ class BankMellatPayment
 						'result' => true,
 						'res_code' => $res[0],
 						'ref_id' => $res[1],
-						'message' => 'Payment request processed successfully.',
+						'message' => 'Payment verification processed successfully.',
 					];
 				} else {
 					return [
 						'result' => false,
 						'res_code' => $res[0],
 						'ref_id' => isset($res[1]) ? $res[1] : null,
-						'message' => 'Payment request was not successful. Error message: '.$result,
+						'message' => 'Payment verification was not successful. Error message: '.$result,
 					];
 				}
 			} catch (Exception $e)
@@ -149,7 +149,7 @@ class BankMellatPayment
 					'result' => false,
 					'res_code' => -1,
 					'ref_id' => null,
-					'message' => 'Payment request was not successfull! Error message: ' . $e->getMessage(),
+					'message' => 'Payment verification was not successfull! Error message: ' . $e->getMessage(),
 				];
 			}
         }
@@ -159,7 +159,7 @@ class BankMellatPayment
 				'result' => false,
 				'res_code' => -2,
 				'ref_id' => null,
-				'message' => 'Amount is below minimum amount, or order id is not defined correctly.',
+				'message' => 'Reference ID and sale Reference ID were not recognized!',
 			];
 		}
     }
@@ -197,14 +197,14 @@ class BankMellatPayment
 						'result' => true,
 						'res_code' => $res[0],
 						'ref_id' => $res[1],
-						'message' => 'Payment request processed successfully.',
+						'message' => 'Payment settlement processed successfully.',
 					];
 				} else {
 					return [
 						'result' => false,
 						'res_code' => $res[0],
 						'ref_id' => isset($res[1]) ? $res[1] : null,
-						'message' => 'Payment request was not successful. Error message: '.$result,
+						'message' => 'Payment settlement was not successful. Error message: '.$result,
 					];
 				}
 			} catch (Exception $e)
@@ -213,7 +213,7 @@ class BankMellatPayment
 					'result' => false,
 					'res_code' => -1,
 					'ref_id' => null,
-					'message' => 'Payment request was not successfull! Error message: ' . $e->getMessage(),
+					'message' => 'Payment settlement was not successfull! Error message: ' . $e->getMessage(),
 				];
 			}
 		}
@@ -223,7 +223,7 @@ class BankMellatPayment
 				'result' => false,
 				'res_code' => -2,
 				'ref_id' => null,
-				'message' => 'Amount is below minimum amount, or order id is not defined correctly.',
+				'message' => 'Reference ID and sale Reference ID were not recognized!',
 			];
 		}
 
