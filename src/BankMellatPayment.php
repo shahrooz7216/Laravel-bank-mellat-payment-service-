@@ -126,12 +126,42 @@ class BankMellatPayment
             try {
 
                 // Call the SOAP method
-                return $this->soapClient->bpVerifyRequest($parameters);
-            } catch (Exception $e) {
-                return $e->getMessage();
-            }
-        } else
-            return false;
+                $result = $this->soapClient->bpVerifyRequest($parameters);
+				$res = explode(',', $result->return);
+				if ($res[0] == "0") {
+					return [
+						'result' => true,
+						'res_code' => $res[0],
+						'ref_id' => $res[1],
+						'message' => 'Payment request processed successfully.',
+					];
+				} else {
+					return [
+						'result' => false,
+						'res_code' => $res[0],
+						'ref_id' => isset($res[1]) ? $res[1] : null,
+						'message' => 'Payment request was not successful. Error message: '.$result,
+					];
+				}
+			} catch (Exception $e)
+			{
+				return [
+					'result' => false,
+					'res_code' => -1,
+					'ref_id' => null,
+					'message' => 'Payment request was not successfull! Error message: ' . $e->getMessage(),
+				];
+			}
+        }
+		else
+		{
+			return [
+				'result' => false,
+				'res_code' => -2,
+				'ref_id' => null,
+				'message' => 'Amount is below minimum amount, or order id is not defined correctly.',
+			];
+		}
     }
 
     /**
@@ -146,7 +176,8 @@ class BankMellatPayment
     {
         $this->soapClient = new SoapClient(Config('BankMellatPayment.wsdl'));
 
-        if($orderId && $saleOrderId && $saleReferenceId) {
+        if($orderId && $saleOrderId && $saleReferenceId)
+        {
 
             $parameters = [
                 'terminalId' => $this->config['terminalId'],
@@ -158,14 +189,44 @@ class BankMellatPayment
             ];
 
             try {
+				// Call the SOAP method
+				$result = $this->soapClient->bpSettleRequest($parameters);
+				$res = explode(',', $result->return);
+				if ($res[0] == "0") {
+					return [
+						'result' => true,
+						'res_code' => $res[0],
+						'ref_id' => $res[1],
+						'message' => 'Payment request processed successfully.',
+					];
+				} else {
+					return [
+						'result' => false,
+						'res_code' => $res[0],
+						'ref_id' => isset($res[1]) ? $res[1] : null,
+						'message' => 'Payment request was not successful. Error message: '.$result,
+					];
+				}
+			} catch (Exception $e)
+			{
+				return [
+					'result' => false,
+					'res_code' => -1,
+					'ref_id' => null,
+					'message' => 'Payment request was not successfull! Error message: ' . $e->getMessage(),
+				];
+			}
+		}
+		else
+		{
+			return [
+				'result' => false,
+				'res_code' => -2,
+				'ref_id' => null,
+				'message' => 'Amount is below minimum amount, or order id is not defined correctly.',
+			];
+		}
 
-                // Call the SOAP method
-                return $this->soapClient->bpSettleRequest($parameters);
-            } catch (Exception $e) {
-                return $e->getMessage();
-            }
-        } else
-            return false;
     }
 
     /**
