@@ -45,7 +45,8 @@ class BankMellatPayment
 
 		$this->soapClient = new SoapClient(Config('BankMellatPayment.wsdl'));
 
-		if($amount && $amount > 100 && $orderId ) {
+		if($amount && $amount > 100 && $orderId )
+		{
 			$parameters = [
 				'terminalId' => $this->config['terminalId'],
 				'userName' => $this->config['userName'],
@@ -241,8 +242,8 @@ class BankMellatPayment
     {
         $this->soapClient = new SoapClient(Config('BankMellatPayment.wsdl'));
 
-        if($orderId && $saleOrderId && $saleReferenceId) {
-
+        if($orderId && $saleOrderId && $saleReferenceId)
+        {
             $parameters = [
                 'terminalId' => $this->config['terminalId'],
                 'userName' => $this->config['userName'],
@@ -252,14 +253,18 @@ class BankMellatPayment
                 'saleReferenceId' => $saleReferenceId,
             ];
 
-            try {
+            try
+			{
 
                 // Call the SOAP method
                 return $this->soapClient->bpReversalRequest($parameters);
-            } catch (Exception $e) {
+            }
+            catch (Exception $e)
+			{
                 return $e->getMessage();
             }
-        } else
+        }
+        else
             return false;
     }
 }
