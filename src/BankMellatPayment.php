@@ -77,7 +77,7 @@ class BankMellatPayment
 						'result' => false,
 						'res_code' => $res[0],
 						'ref_id' => isset($res[1]) ? $res[1] : null,
-						'message' => 'Payment request was not successful. Error message: '.$result,
+						'message' => 'Payment request was not successful. Error message: '.$res,
 					];
 				}
 			} catch (Exception $e) {
@@ -140,7 +140,7 @@ class BankMellatPayment
 						'result' => false,
 						'res_code' => $res[0],
 						'ref_id' => isset($res[1]) ? $res[1] : null,
-						'message' => 'Payment verification was not successful. Error message: '.$result,
+						'message' => 'Payment verification was not successful. Error message: '.$res,
 					];
 				}
 			} catch (Exception $e)
@@ -204,7 +204,7 @@ class BankMellatPayment
 						'result' => false,
 						'res_code' => $res[0],
 						'ref_id' => isset($res[1]) ? $res[1] : null,
-						'message' => 'Payment settlement was not successful. Error message: '.$result,
+						'message' => 'Payment settlement was not successful. Error message: '.$res,
 					];
 				}
 			} catch (Exception $e)
