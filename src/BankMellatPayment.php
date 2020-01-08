@@ -78,7 +78,7 @@ class BankMellatPayment
 						'result' => false,
 						'res_code' => $res[0],
 						'ref_id' => isset($res[1]) ? $res[1] : null,
-						'message' => 'Payment request was not successful. Error message: '.$res,
+						'message' => 'Payment request was not successful. Error message: '.$result->return,
 					];
 				}
 			} catch (Exception $e) {
@@ -141,7 +141,7 @@ class BankMellatPayment
 						'result' => false,
 						'res_code' => $res[0],
 						'ref_id' => isset($res[1]) ? $res[1] : null,
-						'message' => 'Payment verification was not successful. Error message: '.$res,
+						'message' => 'Payment verification was not successful. Error message: '.$result->return,
 					];
 				}
 			} catch (Exception $e)
@@ -205,7 +205,7 @@ class BankMellatPayment
 						'result' => false,
 						'res_code' => $res[0],
 						'ref_id' => isset($res[1]) ? $res[1] : null,
-						'message' => 'Payment settlement was not successful. Error message: '.$res,
+						'message' => 'Payment settlement was not successful. Error message: '.$result->return,
 					];
 				}
 			} catch (Exception $e)
@@ -227,7 +227,6 @@ class BankMellatPayment
 				'message' => 'Reference ID and sale Reference ID were not recognized!',
 			];
 		}
-
     }
 
     /**
