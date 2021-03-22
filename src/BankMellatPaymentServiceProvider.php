@@ -6,7 +6,6 @@
  * Time: 2:49 AM
  */
 
-
 namespace shahrooz7216\MellatBank;
 
 use Illuminate\Support\ServiceProvider;
