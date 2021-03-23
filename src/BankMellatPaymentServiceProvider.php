@@ -12,8 +12,7 @@ use Illuminate\Support\ServiceProvider;
 
 /**
  * Class MellatPaymentServiceProvider
- * @author Hasan Shafei [ www.netparadis.com ] 
-
+ * @author Hasan Shafei [ www.netparadis.com ]
  */
 class BankMellatPaymentServiceProvider extends ServiceProvider
 {
