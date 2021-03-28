@@ -3,7 +3,7 @@
     "description": "Forked: Bank Mellat Payment Service",
     "keywords": ["composer", "package"],
 	"license": "MIT",
-    "version": "1.4.2",
+    "version": "1.5",
     "authors": [
         {
             "name": "Shahrooz Y",
@@ -12,8 +12,8 @@
     ],
     "type": "project",
 	"require": {
-		"illuminate/support" : "^6.20.19",
-		"econea/nusoap": "v0.9.5.*"
+		"illuminate/support" : "^7.30.4",
+		"econea/nusoap": "v0.9.11"
 	  },
   "autoload": {
     "psr-4": {
