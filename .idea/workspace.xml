@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8fc41590-1cf1-4460-9e98-c3c6dda36f5e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/mellatBank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mellatBank.iml" afterDir="false" />
+    <list default="true" id="8fc41590-1cf1-4460-9e98-c3c6dda36f5e" name="Default" comment=" - php version changed to 7.4&#10; - illuminate support changed to 7.30.4 to match laravel 7.30.4&#10; - updated to version 1.5">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +105,8 @@
       <workItem from="1616424891377" duration="786000" />
       <workItem from="1616425989185" duration="42000" />
       <workItem from="1616426773358" duration="1829000" />
-      <workItem from="1616911225899" duration="306000" />
+      <workItem from="1616911225899" duration="765000" />
+      <workItem from="1616927476862" duration="92000" />
     </task>
     <task id="LOCAL-00001" summary=" - Added two new methods for settling payment request and reversal request">
       <created>1572943696319</created>
@@ -311,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616479761108</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary=" - php version changed to 7.4&#10; - illuminate support changed to 7.30.4 to match laravel 7.30.4&#10; - updated to version 1.5">
+      <created>1616911598300</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1616911598300</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView">
@@ -363,6 +370,17 @@
     <MESSAGE value=" - php version changed to 7.4&#10; - updated to version 1.4" />
     <MESSAGE value=" - php version changed to 7.4&#10; - illuminate support changed to 6.20.19 to match laravel 6.20.19&#10; - updated to version 1.4" />
     <MESSAGE value=" - php version changed to 7.4&#10; - illuminate support changed to 6.20.19 to match laravel 6.20.19&#10; - updated to version 1.4.2" />
-    <option name="LAST_COMMIT_MESSAGE" value=" - php version changed to 7.4&#10; - illuminate support changed to 6.20.19 to match laravel 6.20.19&#10; - updated to version 1.4.2" />
+    <MESSAGE value=" - php version changed to 7.4&#10; - illuminate support changed to 7.30.4 to match laravel 7.30.4&#10; - updated to version 1.5" />
+    <option name="LAST_COMMIT_MESSAGE" value=" - php version changed to 7.4&#10; - illuminate support changed to 7.30.4 to match laravel 7.30.4&#10; - updated to version 1.5" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="180" y="0" key="CommitChangelistDialog2" timestamp="1616911597653">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="180" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1616911597653" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1616911832747">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1616911832747" />
   </component>
 </project>
